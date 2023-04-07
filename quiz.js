@@ -21,17 +21,36 @@ $(document).ready(function(){
 
     score = 0;
     reset = false;
+     
+    $("button").click (function (event){
+            score = 0
+            for(var i=0; i<questions.length; i++){
+           $("input[name=q"+i+"]").each (function (index){
+                  choice = $(this).parent().text(); 
+                  if ($( this ).prop("checked") == true && answers [0] == choice){
+                    score += 1;
+                  }
 
-    //Function to check the answers and display the score
-    $("button").click(function(event) {
-      score = 0; // reset the score before computing
-      for (let i = 0; i<questions.length; i++) {
-        let choice = $("input[name='q" + i + "']:checked").val();
-        if ($(this).prop("checked") == true && answers [i] == choice){
-          score =+ 1;
-        }
-      }
-      $("#quiz-box").append("<h2>Your score is: " + score + "</h2>");
-    });  
+                  if ($( this ).prop("checked") == true && answers [1] == choice){
+                    score += 1;
+                 }
+
+                  if ($( this ).prop("checked") == true && answers [2] == choice){
+                    score += 1;
+                }
+
+                  if ($( this ).prop("checked") == true && answers [3] == choice){
+                    score += 1;
+                }
+
+                  if ($( this ).prop("checked") == true && answers [4] == choice){
+                    score += 1;
+                }
+
+           });
+          }
+           
+      $("#quiz-box").append ("<h2>Your score is: " + score + "</h2>");
+      }); 
 
 })
